@@ -1,0 +1,117 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UIUtil</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.wuhao.weather.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UIUtil (com.wuhao.weather.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UIUtil</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.wuhao.weather.utils;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.content.res.Resources;
+<i>4</i>&nbsp;import android.util.DisplayMetrics;
+<i>5</i>&nbsp;import android.widget.Toast;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.wuhao.weather.WeatherApplication;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * Created by WuHao028 on 2019-07-06
+<i>11</i>&nbsp; */
+<b class="nc"><i>12</i>&nbsp;public class UIUtil {</b>
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    public static float convertDpToPixel(float dp) {
+<b class="nc"><i>15</i>&nbsp;        Resources resources = WeatherApplication.getApplicaiton().getResources();</b>
+<b class="nc"><i>16</i>&nbsp;        DisplayMetrics metrics = resources.getDisplayMetrics();</b>
+<b class="nc"><i>17</i>&nbsp;        float px = dp * ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);</b>
+<b class="nc"><i>18</i>&nbsp;        return px;</b>
+<i>19</i>&nbsp;    }
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    public static float convertPixelsToDp(float px) {
+<b class="nc"><i>23</i>&nbsp;        Resources resources = WeatherApplication.getApplicaiton().getResources();</b>
+<b class="nc"><i>24</i>&nbsp;        DisplayMetrics metrics = resources.getDisplayMetrics();</b>
+<b class="nc"><i>25</i>&nbsp;        float dp = px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);</b>
+<b class="nc"><i>26</i>&nbsp;        return dp;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    public static void showToast(String message, int length) {
+<b class="nc"><i>31</i>&nbsp;        Toast toast = Toast.makeText(WeatherApplication.getApplicaiton(), message, length);</b>
+<b class="nc"><i>32</i>&nbsp;        toast.show();</b>
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-07-07 10:22</div>
+</div>
+</body>
+</html>

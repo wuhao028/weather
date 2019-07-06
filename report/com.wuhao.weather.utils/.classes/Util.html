@@ -1,0 +1,174 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Util</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.wuhao.weather.utils</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Util (com.wuhao.weather.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Util</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86.7%
+  </span>
+  <span class="absValue">
+    (39/ 45)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.wuhao.weather.utils;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.text.TextUtils;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import com.wuhao.weather.data.Constants;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.text.SimpleDateFormat;
+<i>8</i>&nbsp;import java.util.Calendar;
+<i>9</i>&nbsp;import java.util.Date;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;/**
+<i>12</i>&nbsp; * Created by WuHao028 on 2019-07-06
+<i>13</i>&nbsp; */
+<b class="nc"><i>14</i>&nbsp;public class Util {</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    public static String getHighLowTemperature(double high, double low) {
+<b class="fc"><i>17</i>&nbsp;        return (int) high + Constants.TEMPERATURE_UNIT + &quot;/&quot; + (int) low + Constants.TEMPERATURE_UNIT;</b>
+<i>18</i>&nbsp;    }
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public static String getTime(long timeStamp) {
+<b class="fc"><i>21</i>&nbsp;        SimpleDateFormat format = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</b>
+<b class="fc"><i>22</i>&nbsp;        String str = format.format(timeStamp * 1000);</b>
+<b class="fc"><i>23</i>&nbsp;        if (!TextUtils.isEmpty(str) &amp;&amp; str.contains(&quot; &quot;) &amp;&amp; str.split(&quot; &quot;).length &gt; 1) {</b>
+<b class="fc"><i>24</i>&nbsp;            return str.split(&quot; &quot;)[1];</b>
+<i>25</i>&nbsp;        }
+<b class="nc"><i>26</i>&nbsp;        return &quot; &quot;;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    public static String getCurrentTime() {
+<b class="fc"><i>30</i>&nbsp;        SimpleDateFormat format = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</b>
+<b class="fc"><i>31</i>&nbsp;        return format.format(new Date().getTime());</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public static String getWindDirection(double deg) {
+<b class="fc"><i>35</i>&nbsp;        if (deg &lt; 22.5 || deg &gt; 337.5) {</b>
+<b class="fc"><i>36</i>&nbsp;            return &quot;N&quot;;</b>
+<i>37</i>&nbsp;        }
+<b class="fc"><i>38</i>&nbsp;        if (deg &gt;= 22.5 &amp;&amp; deg &lt; 67.5) {</b>
+<b class="fc"><i>39</i>&nbsp;            return &quot;NE&quot;;</b>
+<i>40</i>&nbsp;        }
+<b class="fc"><i>41</i>&nbsp;        if (deg &gt;= 67.5 &amp;&amp; deg &lt; 112.5) {</b>
+<b class="fc"><i>42</i>&nbsp;            return &quot;E&quot;;</b>
+<i>43</i>&nbsp;        }
+<b class="fc"><i>44</i>&nbsp;        if (deg &gt;= 112.5 &amp;&amp; deg &lt; 157.5) {</b>
+<b class="fc"><i>45</i>&nbsp;            return &quot;SE&quot;;</b>
+<i>46</i>&nbsp;        }
+<b class="fc"><i>47</i>&nbsp;        if (deg &gt;= 157.5 &amp;&amp; deg &lt; 202.5) {</b>
+<b class="fc"><i>48</i>&nbsp;            return &quot;S&quot;;</b>
+<i>49</i>&nbsp;        }
+<b class="fc"><i>50</i>&nbsp;        if (deg &gt;= 202.5 &amp;&amp; deg &lt; 247.5) {</b>
+<b class="fc"><i>51</i>&nbsp;            return &quot;SW&quot;;</b>
+<i>52</i>&nbsp;        }
+<b class="fc"><i>53</i>&nbsp;        if (deg &gt;= 247.5 &amp;&amp; deg &lt; 292.5) {</b>
+<b class="fc"><i>54</i>&nbsp;            return &quot;W&quot;;</b>
+<i>55</i>&nbsp;        }
+<b class="fc"><i>56</i>&nbsp;        if (deg &gt;= 292.5 &amp;&amp; deg &lt; 337.5) {</b>
+<b class="fc"><i>57</i>&nbsp;            return &quot;NW&quot;;</b>
+<i>58</i>&nbsp;        }
+<b class="nc"><i>59</i>&nbsp;        return &quot; &quot;;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    public static String getWeekOfDate(Date dt, int i) {
+<b class="fc"><i>63</i>&nbsp;        String[] weekDays = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;};</b>
+<b class="fc"><i>64</i>&nbsp;        Calendar cal = Calendar.getInstance();</b>
+<b class="fc"><i>65</i>&nbsp;        cal.setTime(dt);</b>
+<b class="fc"><i>66</i>&nbsp;        int w = cal.get(Calendar.DAY_OF_WEEK) - 1;</b>
+<b class="fc"><i>67</i>&nbsp;        if (w &lt; 0)</b>
+<b class="nc"><i>68</i>&nbsp;            w = 0;</b>
+<b class="fc"><i>69</i>&nbsp;        w = (w + i) % 7;</b>
+<b class="fc"><i>70</i>&nbsp;        return weekDays[w];</b>
+<i>71</i>&nbsp;    }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    public static String getDateFromBean(String fullDate) {
+<b class="fc"><i>74</i>&nbsp;        if (TextUtils.isEmpty(fullDate))</b>
+<b class="nc"><i>75</i>&nbsp;            return fullDate;</b>
+<b class="fc"><i>76</i>&nbsp;        fullDate = fullDate.trim();</b>
+<b class="fc"><i>77</i>&nbsp;        if (!fullDate.contains(&quot; &quot;))</b>
+<b class="fc"><i>78</i>&nbsp;            return fullDate;</b>
+<b class="fc"><i>79</i>&nbsp;        return fullDate.split(&quot; &quot;)[0];</b>
+<i>80</i>&nbsp;    }
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;    public static int getTimeZoneOffSet(Date date, int originalTimeZone) {
+<b class="fc"><i>83</i>&nbsp;        String zoneStr = String.format(&quot;%tZ&quot;, date);</b>
+<b class="fc"><i>84</i>&nbsp;        int zoneInt = 0;</b>
+<b class="fc"><i>85</i>&nbsp;        if (zoneStr.contains(&quot;:&quot;)) {</b>
+<b class="nc"><i>86</i>&nbsp;            zoneInt = Integer.valueOf(zoneStr.split(&quot;:&quot;)[0].substring(3));</b>
+<i>87</i>&nbsp;        }
+<b class="fc"><i>88</i>&nbsp;        return originalTimeZone - 60 * 60 * zoneInt;</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-07-07 10:22</div>
+</div>
+</body>
+</html>
