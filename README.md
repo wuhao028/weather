@@ -27,5 +27,6 @@ Improvements need to do:
 - wirte more unit test
 - add city management, allow user to add and delete cities. 
 - store the data in local device
+- test on more different size screens 
 
 
