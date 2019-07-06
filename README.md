@@ -8,6 +8,8 @@ A weather App demo using open weather map api.
 - As limited time, I've only wrote the unit test for Util.class, report is under weather/report/index.html,
 coverage is more than 80%.
 
+- an apk is under root directory ready to install
+
 Features :
 
 - Showing cities's weather and fives days weather forecast
