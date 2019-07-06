@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="last_update_time">Last Update: </string>
+    <string name="wind_speed">WIND SPEED:   %1$s km/hr </string>
+    <string name="wind_direction">WIND DIRECTION:   %1$s </string>
+    <string name="visibility">%1$s km </string>
+    <string name="pressure">%1$s hPa </string>
+    <string name="network_error">Internet Not Available </string>
+    <string name="gps_error">Please Turn On GPS </string>
+    <string name="search_hint">Enter City Name</string>
+</resources>
