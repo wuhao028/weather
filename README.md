@@ -24,3 +24,9 @@ coverage is more than 80%.
 - add city management, allow the user to add and delete cities.
 - store the data in the local device
 - test on more different size screens
+
+### TODO
+
+- [ ] city manage
+- [ ] store data in local
+- [ ] setting page, allow show different unit 
