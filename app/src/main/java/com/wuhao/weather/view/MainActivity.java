@@ -17,6 +17,7 @@ import com.wuhao.weather.R;
 import com.wuhao.weather.adapter.WeatherAdapter;
 import com.wuhao.weather.data.DataManager;
 import com.wuhao.weather.model.CityBean;
+import com.wuhao.weather.presenter.MainActivityPresenter;
 import com.wuhao.weather.utils.LocationUtil;
 import com.wuhao.weather.utils.UIUtil;
 
@@ -36,6 +37,7 @@ public class MainActivity extends BaseActivity {
     ImageView addView;
     private List<WeatherFragment> screens;
     private int mCurrentIndex = 0;
+    private MainActivityPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         initLocation();
         initData();
+        presenter = new MainActivityPresenter(this);
         addView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +123,7 @@ public class MainActivity extends BaseActivity {
         } else {
             if (LocationUtil.getLatAndLon() != null && LocationUtil.getLatAndLon()[0] != 200) {
                 double[] result = LocationUtil.getLatAndLon();
-                DataManager.getInstance().setDefaultCity(result[0], result[1]);
+                presenter.setDefaultLocation(result);
                 initData();
                 for (WeatherFragment fragment : screens) {
                     fragment.update();
@@ -138,7 +141,7 @@ public class MainActivity extends BaseActivity {
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             if (LocationUtil.getLatAndLon() != null && LocationUtil.getLatAndLon()[0] != 200) {
                 double[] result = LocationUtil.getLatAndLon();
-                DataManager.getInstance().setDefaultCity(result[0], result[1]);
+                presenter.setDefaultLocation(result);
                 initData();
                 for (WeatherFragment fragment : screens) {
                     fragment.update();
